@@ -2,7 +2,8 @@
 const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true
+    unoptimized: true,
+    domains: ['www.strobemedia.co.uk']
   }
 }
 
