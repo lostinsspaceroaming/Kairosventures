@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   images: {
-    unoptimized: true,
-    domains: ['www.strobemedia.co.uk']
-  }
+    domains: ['localhost'],
+  },
 }
 
 module.exports = nextConfig 
