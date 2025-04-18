@@ -126,52 +126,71 @@ export default function Home() {
         <meta property="og:image" content="/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white">
+      <main className="min-h-screen bg-black text-white">
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40" />
             <Image
               src="/hero-bg.jpg"
               alt="Background"
               fill
-              className="object-cover opacity-20"
+              className="object-cover opacity-30"
               priority
             />
           </div>
           <div className="container mx-auto px-4 z-10 text-center">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-6xl font-bold mb-6"
-            >
-              Innovate. Partner. Shape the Future.
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl mb-8 max-w-2xl mx-auto"
-            >
-              Transforming Ideas Into Exceptional Results
-            </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl mx-auto"
             >
-              <Link 
-                href="/contact" 
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-colors"
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                Building Tomorrow's Innovations
+              </h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto"
               >
-                Get Started
-              </Link>
+                We partner with visionary founders to create exceptional companies
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <Link 
+                  href="/contact" 
+                  className="bg-white text-black px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-gray-200"
+                >
+                  Get Started
+                </Link>
+                <Link 
+                  href="#portfolio" 
+                  className="border border-white text-white px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-white/10"
+                >
+                  View Portfolio
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
+          <motion.div 
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </motion.div>
         </section>
 
-        {/* Stats Section with enhanced animations */}
-        <section className="py-20 bg-kairos-dark">
+        {/* Enhanced Stats Section */}
+        <section className="py-32 bg-black">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {stats.map((stat, index) => (
@@ -179,18 +198,19 @@ export default function Home() {
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center p-8 rounded-lg bg-black/30 backdrop-blur-sm hover:bg-black/40 transition-all duration-300"
+                  className="group p-8 rounded-lg bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all"
                 >
                   <motion.h3 
-                    className="text-5xl font-bold text-kairos-green mb-2"
+                    className="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
                     whileInView={{ scale: [0.8, 1.2, 1] }}
                     transition={{ duration: 1 }}
                   >
                     {stat.number}
                   </motion.h3>
-                  <p className="text-xl text-gray-300">{stat.label}</p>
+                  <p className="text-xl text-gray-300 mb-2">{stat.label}</p>
                   <p className="text-sm text-gray-500">{stat.sublabel}</p>
                 </motion.div>
               ))}
@@ -199,24 +219,39 @@ export default function Home() {
         </section>
 
         {/* Enhanced Services Section */}
-        <section className="py-20 bg-black">
+        <section className="py-32 bg-black">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-16 heading-gradient">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
+            >
               What We Do
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
                 <motion.div
                   key={service.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  whileHover={{ scale: 1.05 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -5 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center space-x-4 p-4 rounded-lg bg-black/30 backdrop-blur-sm"
+                  className="group p-8 rounded-lg bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all"
                 >
-                  <span className="text-2xl">{service.icon}</span>
-                  <span className="text-gray-300">{service.name}</span>
+                  <div className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4">{service.name}</h3>
+                  <p className="text-gray-400">
+                    {service.name === "Early Stage Investment" && "Strategic capital and resources for promising startups"}
+                    {service.name === "Strategic Planning" && "Comprehensive roadmap development and execution"}
+                    {service.name === "Technical Development" && "Cutting-edge technology implementation and optimization"}
+                    {service.name === "Marketing & Growth" && "Data-driven strategies for sustainable expansion"}
+                    {service.name === "UI/UX Design" && "User-centered design for exceptional digital experiences"}
+                    {service.name === "AI Integration" && "Intelligent solutions for enhanced business operations"}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -224,58 +259,65 @@ export default function Home() {
         </section>
 
         {/* Enhanced Portfolio Section */}
-        <section className="py-20 bg-kairos-dark">
+        <section id="portfolio" className="py-32 bg-black">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-16 heading-gradient">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
+            >
               Our Portfolio
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {startups.map((startup, index) => (
                 <motion.div
                   key={startup.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   whileHover={{ y: -10 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative overflow-hidden rounded-lg bg-black/50"
+                  className="group relative overflow-hidden rounded-lg bg-black/50 backdrop-blur-sm border border-white/10"
                 >
                   <div className="relative h-64 w-full">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90 z-10" />
                     <Image
                       src={startup.image}
                       alt={startup.name}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 right-4 z-20">
-                      <span className="px-3 py-1 text-xs font-semibold bg-kairos-green/20 text-kairos-green rounded-full">
-                        {startup.status}
-                      </span>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="text-2xl font-bold mb-2">{startup.name}</h3>
+                      <p className="text-gray-300 mb-4">{startup.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {startup.tech.map((tech, i) => (
+                          <span key={i} className="px-3 py-1 bg-white/10 rounded-full text-sm">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <Link 
+                        href={startup.link}
+                        className="inline-flex items-center text-white hover:text-gray-300 transition-colors"
+                      >
+                        Learn More
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-2xl font-semibold mb-4 text-kairos-green">
-                      {startup.name}
-                    </h3>
-                    <p className="text-gray-300 mb-4">
-                      {startup.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {startup.tech.map((tech) => (
-                        <span key={tech} className="px-2 py-1 text-xs bg-kairos-green/10 text-kairos-green rounded-full">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    <Link 
-                      href={startup.link}
-                      target="_blank"
-                      rel="noopener noreferrer" 
-                      className="inline-flex items-center text-kairos-green hover:opacity-80 transition-opacity"
-                    >
-                      View Project <span className="ml-2">→</span>
-                    </Link>
+                  <div className="absolute top-4 right-4 z-20">
+                    <span className={`px-3 py-1 rounded-full text-sm ${
+                      startup.status === 'LIVE' ? 'bg-green-500/20 text-green-400' :
+                      startup.status === 'BETA' ? 'bg-blue-500/20 text-blue-400' :
+                      startup.status === 'COMING SOON' ? 'bg-yellow-500/20 text-yellow-400' :
+                      'bg-gray-500/20 text-gray-400'
+                    }`}>
+                      {startup.status}
+                    </span>
                   </div>
                 </motion.div>
               ))}
@@ -283,56 +325,77 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Partners Section */}
-        <section className="py-20 bg-gray-900">
+        {/* Enhanced Partners Section */}
+        <section className="py-32 bg-black">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-16">Our Strategic Partners</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
+            >
+              Our Partners
+            </motion.h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {partners.map((partner, index) => (
                 <motion.div
                   key={partner.name}
-                  whileHover={{ scale: 1.05 }}
-                  className="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative aspect-square rounded-lg bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all p-6 flex items-center justify-center"
                 >
-                  <Link href={partner.link} target="_blank" rel="noopener noreferrer">
-                    <div className="flex flex-col items-center">
-                      <div className="w-32 h-32 relative mb-4">
-                        <Image
-                          src={partner.image}
-                          alt={partner.name}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2">{partner.name}</h3>
-                      <p className="text-gray-400 text-center">{partner.description}</p>
+                  <Image
+                    src={partner.image}
+                    alt={partner.name}
+                    fill
+                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <div>
+                      <h3 className="text-lg font-semibold mb-1">{partner.name}</h3>
+                      <p className="text-sm text-gray-400">{partner.description}</p>
                     </div>
-                  </Link>
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Technology Stack Section */}
-        <section className="py-20">
+        {/* Enhanced Tech Stack Section */}
+        <section className="py-32 bg-black">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-16">Technology Stack</h2>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
+            >
+              Our Tech Stack
+            </motion.h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {techStack.map((tech, index) => (
                 <motion.div
                   key={tech.name}
-                  whileHover={{ scale: 1.1 }}
-                  className="flex flex-col items-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative aspect-square rounded-lg bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all p-6 flex items-center justify-center"
                 >
                   <Image
                     src={tech.image}
                     alt={tech.name}
-                    width={80}
-                    height={80}
-                    className="mb-4"
+                    fill
+                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                   />
-                  <span className="text-lg font-semibold">{tech.name}</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <h3 className="text-lg font-semibold">{tech.name}</h3>
+                  </div>
                 </motion.div>
               ))}
             </div>

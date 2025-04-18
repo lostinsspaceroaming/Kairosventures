@@ -1,52 +1,64 @@
 import { ReactNode } from 'react';
 
+declare module 'react' {
+  export = React;
+  export as namespace React;
+}
+
 declare module 'framer-motion' {
-  export interface MotionProps {
+  import { ComponentType, HTMLAttributes } from 'react';
+  
+  export interface MotionProps extends HTMLAttributes<HTMLElement> {
     initial?: any;
     animate?: any;
     whileHover?: any;
-    whileTap?: any;
     whileInView?: any;
-    transition?: any;
     viewport?: any;
-    className?: string;
-    children?: ReactNode;
+    transition?: any;
   }
-  
+
   export const motion: {
-    div: React.FC<MotionProps>;
-    [key: string]: React.FC<MotionProps>;
+    div: ComponentType<MotionProps>;
+    h1: ComponentType<MotionProps>;
+    h2: ComponentType<MotionProps>;
+    p: ComponentType<MotionProps>;
+    span: ComponentType<MotionProps>;
+    [key: string]: ComponentType<MotionProps>;
   };
 }
 
 declare module 'next/image' {
-  const Image: React.FC<{
+  import { ComponentType, DetailedHTMLProps, ImgHTMLAttributes } from 'react';
+  export interface ImageProps extends Omit<DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, 'src' | 'alt'> {
     src: string;
     alt: string;
     width?: number;
     height?: number;
     fill?: boolean;
-    className?: string;
     priority?: boolean;
-  }>;
+  }
+  const Image: ComponentType<ImageProps>;
   export default Image;
 }
 
 declare module 'next/link' {
-  const Link: React.FC<{
+  import { ComponentType, AnchorHTMLAttributes } from 'react';
+  export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
     href: string;
-    className?: string;
-    target?: string;
-    rel?: string;
-    children?: ReactNode;
-  }>;
+    as?: string;
+    replace?: boolean;
+    scroll?: boolean;
+    shallow?: boolean;
+    passHref?: boolean;
+    prefetch?: boolean;
+  }
+  const Link: ComponentType<LinkProps>;
   export default Link;
 }
 
 declare module 'next/head' {
-  const Head: React.FC<{
-    children?: ReactNode;
-  }>;
+  import { ComponentType } from 'react';
+  const Head: ComponentType<{ children?: React.ReactNode }>;
   export default Head;
 }
 
