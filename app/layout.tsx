@@ -21,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        {/* Force new deployment */}
         <motion.header 
           initial={{ y: -100 }}
           animate={{ y: 0 }}
