@@ -56,6 +56,64 @@ const services = [
   { name: "AI Integration", icon: "🤖" }
 ]
 
+const partners = [
+  {
+    name: 'Ava Labs',
+    description: 'Building the Internet of Finance',
+    link: 'https://www.avax.network',
+    image: '/ava-labs.jpg'
+  },
+  {
+    name: 'HOOPS Family Investments',
+    description: 'Strategic Investment Solutions',
+    link: 'https://www.hoopsfamily.com',
+    image: '/hoops-family.jpg'
+  },
+  {
+    name: 'Vaspese',
+    description: 'Innovative Technology Solutions',
+    link: 'https://www.vaspese.com',
+    image: '/vaspese.jpg'
+  },
+  {
+    name: 'Plutus',
+    description: 'Financial Technology Innovation',
+    link: 'https://www.plutus.com',
+    image: '/plutus.jpg'
+  },
+  {
+    name: 'SocialPlug',
+    description: 'Social Media Solutions',
+    link: 'https://www.socialplug.com',
+    image: '/socialplug.jpg'
+  },
+  {
+    name: 'Globol',
+    description: 'Global Business Solutions',
+    link: 'https://www.globol.com',
+    image: '/globol.jpg'
+  }
+];
+
+const techStack = [
+  {
+    name: 'React',
+    image: '/react-logo.jpg'
+  },
+  {
+    name: 'Next.js',
+    image: '/nextjs-logo.jpg'
+  },
+  {
+    name: 'TailwindCSS',
+    image: '/tailwind-logo.jpg'
+  },
+  {
+    name: 'TypeScript',
+    image: '/typescript-logo.jpg'
+  }
+];
+
 export default function Home() {
   return (
     <>
@@ -230,131 +288,28 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-16">Our Strategic Partners</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Ava Labs Card */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow"
-              >
-                <Link href="https://www.avax.network" target="_blank" rel="noopener noreferrer">
-                  <div className="flex flex-col items-center">
-                    <div className="w-32 h-32 relative mb-4">
-                      <Image
-                        src="/ava-labs.jpg"
-                        alt="Ava Labs"
-                        fill
-                        className="object-contain"
-                      />
+              {partners.map((partner, index) => (
+                <motion.div
+                  key={partner.name}
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow"
+                >
+                  <Link href={partner.link} target="_blank" rel="noopener noreferrer">
+                    <div className="flex flex-col items-center">
+                      <div className="w-32 h-32 relative mb-4">
+                        <Image
+                          src={partner.image}
+                          alt={partner.name}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">{partner.name}</h3>
+                      <p className="text-gray-400 text-center">{partner.description}</p>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">Ava Labs</h3>
-                    <p className="text-gray-400 text-center">Building the Internet of Finance</p>
-                  </div>
-                </Link>
-              </motion.div>
-
-              {/* HOOPS Family Investments Card */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow"
-              >
-                <Link href="https://www.hoopsfamily.com" target="_blank" rel="noopener noreferrer">
-                  <div className="flex flex-col items-center">
-                    <div className="w-32 h-32 relative mb-4">
-                      <Image
-                        src="/hoops-family.jpg"
-                        alt="HOOPS Family Investments"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">HOOPS Family Investments</h3>
-                    <p className="text-gray-400 text-center">Strategic Investment Solutions</p>
-                  </div>
-                </Link>
-              </motion.div>
-
-              {/* Vaspese Card */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow"
-              >
-                <Link href="https://www.vaspese.com" target="_blank" rel="noopener noreferrer">
-                  <div className="flex flex-col items-center">
-                    <div className="w-32 h-32 relative mb-4">
-                      <Image
-                        src="/vaspese.jpg"
-                        alt="Vaspese"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">Vaspese</h3>
-                    <p className="text-gray-400 text-center">Innovative Technology Solutions</p>
-                  </div>
-                </Link>
-              </motion.div>
-
-              {/* Plutus Card */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow"
-              >
-                <Link href="https://www.plutus.com" target="_blank" rel="noopener noreferrer">
-                  <div className="flex flex-col items-center">
-                    <div className="w-32 h-32 relative mb-4">
-                      <Image
-                        src="/plutus.jpg"
-                        alt="Plutus"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">Plutus</h3>
-                    <p className="text-gray-400 text-center">Financial Technology Innovation</p>
-                  </div>
-                </Link>
-              </motion.div>
-
-              {/* SocialPlug Card */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow"
-              >
-                <Link href="https://www.socialplug.com" target="_blank" rel="noopener noreferrer">
-                  <div className="flex flex-col items-center">
-                    <div className="w-32 h-32 relative mb-4">
-                      <Image
-                        src="/socialplug.jpg"
-                        alt="SocialPlug"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">SocialPlug</h3>
-                    <p className="text-gray-400 text-center">Social Media Solutions</p>
-                  </div>
-                </Link>
-              </motion.div>
-
-              {/* Globol Card */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-gray-800 rounded-lg p-6 hover:shadow-xl transition-shadow"
-              >
-                <Link href="https://www.globol.com" target="_blank" rel="noopener noreferrer">
-                  <div className="flex flex-col items-center">
-                    <div className="w-32 h-32 relative mb-4">
-                      <Image
-                        src="/globol.jpg"
-                        alt="Globol"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">Globol</h3>
-                    <p className="text-gray-400 text-center">Global Business Solutions</p>
-                  </div>
-                </Link>
-              </motion.div>
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -364,58 +319,22 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-16">Technology Stack</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center"
-              >
-                <Image
-                  src="/react-logo.jpg"
-                  alt="React"
-                  width={80}
-                  height={80}
-                  className="mb-4"
-                />
-                <span className="text-lg font-semibold">React</span>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center"
-              >
-                <Image
-                  src="/nextjs-logo.jpg"
-                  alt="Next.js"
-                  width={80}
-                  height={80}
-                  className="mb-4"
-                />
-                <span className="text-lg font-semibold">Next.js</span>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center"
-              >
-                <Image
-                  src="/tailwind-logo.jpg"
-                  alt="TailwindCSS"
-                  width={80}
-                  height={80}
-                  className="mb-4"
-                />
-                <span className="text-lg font-semibold">TailwindCSS</span>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center"
-              >
-                <Image
-                  src="/typescript-logo.jpg"
-                  alt="TypeScript"
-                  width={80}
-                  height={80}
-                  className="mb-4"
-                />
-                <span className="text-lg font-semibold">TypeScript</span>
-              </motion.div>
+              {techStack.map((tech, index) => (
+                <motion.div
+                  key={tech.name}
+                  whileHover={{ scale: 1.1 }}
+                  className="flex flex-col items-center"
+                >
+                  <Image
+                    src={tech.image}
+                    alt={tech.name}
+                    width={80}
+                    height={80}
+                    className="mb-4"
+                  />
+                  <span className="text-lg font-semibold">{tech.name}</span>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
