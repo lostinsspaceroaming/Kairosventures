@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M30 25h140" stroke="#39FF14" stroke-width="2"/>
+  <circle cx="30" cy="25" r="10" stroke="#39FF14" stroke-width="2" fill="none"/>
+  <circle cx="170" cy="25" r="10" stroke="#39FF14" stroke-width="2" fill="none"/>
+  <text x="45" y="32" font-family="Arial" font-size="18" fill="#39FF14">SHARE MY RIDE</text>
+</svg> 
