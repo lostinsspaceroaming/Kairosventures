@@ -24,7 +24,7 @@ const startups = [
   {
     name: 'Clout Buster',
     description: 'Revolutionary AI-powered TikTok analyzer that predicts viral potential with advanced machine learning.',
-    link: '/clout-buster-demo',
+    link: 'https://preview--clout-spark-analyze.lovable.app',
     image: '/clout-buster.jpg',
     status: 'BETA',
     tech: ['AI/ML', 'Social Media', 'Predictive Analytics']
@@ -32,7 +32,7 @@ const startups = [
   {
     name: 'Hire Local',
     description: 'Connecting local talent with nearby opportunities. The future of community-based freelancing.',
-    link: '/hire-local-demo',
+    link: 'https://preview--hirelocal-freelance-ninja.lovable.app/freelancer/1',
     image: '/hire-local.jpg',
     status: 'COMING SOON',
     tech: ['Marketplace', 'Community', 'Local Economy']
@@ -40,7 +40,7 @@ const startups = [
   {
     name: 'Share My Ride',
     description: 'Sustainable and social ride-sharing platform that puts community and safety first.',
-    link: '/share-my-ride-demo',
+    link: 'https://preview--ride-green-share-now.lovable.app',
     image: '/share-ride.jpg',
     status: 'IN DEVELOPMENT',
     tech: ['Transportation', 'Community', 'Sustainability']
@@ -126,11 +126,11 @@ export default function Home() {
         <meta property="og:image" content="/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <main className="min-h-screen bg-black text-white">
+      <main className="min-h-screen bg-kairos-dark text-kairos-light">
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-kairos-dark/80 to-kairos-dark/40" />
             <Image
               src="/hero-bg.jpg"
               alt="Background"
@@ -146,7 +146,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="max-w-4xl mx-auto"
             >
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-kairos-light to-kairos-green">
                 Building Tomorrow's Innovations
               </h1>
               <motion.p 
@@ -164,33 +164,24 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
                 <Link 
-                  href="/contact" 
-                  className="bg-white text-black px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-gray-200"
+                  href="mailto:charlie@kairosventures.net" 
+                  className="bg-kairos-green text-kairos-dark px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-opacity-90"
                 >
                   Get Started
                 </Link>
                 <Link 
                   href="#portfolio" 
-                  className="border border-white text-white px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-white/10"
+                  className="border border-kairos-green text-kairos-green px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-kairos-green hover:text-kairos-dark"
                 >
                   View Portfolio
                 </Link>
               </motion.div>
             </motion.div>
           </div>
-          <motion.div 
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </motion.div>
         </section>
 
-        {/* Enhanced Stats Section */}
-        <section className="py-32 bg-black">
+        {/* Stats Section */}
+        <section className="py-32 bg-kairos-dark">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {stats.map((stat, index) => (
@@ -201,10 +192,10 @@ export default function Home() {
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group p-8 rounded-lg bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all"
+                  className="group p-8 rounded-lg bg-kairos-gray backdrop-blur-sm border border-kairos-green/10 hover:border-kairos-green/20 transition-all"
                 >
                   <motion.h3 
-                    className="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
+                    className="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-kairos-light to-kairos-green"
                     whileInView={{ scale: [0.8, 1.2, 1] }}
                     transition={{ duration: 1 }}
                   >
@@ -218,14 +209,83 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Enhanced Services Section */}
-        <section className="py-32 bg-black">
+        {/* Portfolio Section */}
+        <section id="portfolio" className="py-32 bg-kairos-dark">
           <div className="container mx-auto px-4">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
+              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-kairos-light to-kairos-green"
+            >
+              Our Portfolio
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {startups.map((startup, index) => (
+                <motion.div
+                  key={startup.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ y: -10 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group relative overflow-hidden rounded-lg bg-kairos-gray backdrop-blur-sm border border-kairos-green/10"
+                >
+                  <div className="relative h-64 w-full">
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-kairos-dark/90 z-10" />
+                    <Image
+                      src={startup.image}
+                      alt={startup.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="text-2xl font-bold mb-2">{startup.name}</h3>
+                      <p className="text-gray-300 mb-4">{startup.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {startup.tech.map((tech, i) => (
+                          <span key={i} className="px-3 py-1 bg-kairos-green/10 rounded-full text-sm text-kairos-green">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <a 
+                        href={startup.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-kairos-green hover:text-kairos-light transition-colors"
+                      >
+                        Learn More
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div className="absolute top-4 right-4 z-20">
+                    <span className={`px-3 py-1 rounded-full text-sm ${
+                      startup.status === 'LIVE' ? 'bg-green-500/20 text-green-400' :
+                      startup.status === 'BETA' ? 'bg-blue-500/20 text-blue-400' :
+                      startup.status === 'COMING SOON' ? 'bg-yellow-500/20 text-yellow-400' :
+                      'bg-gray-500/20 text-gray-400'
+                    }`}>
+                      {startup.status}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="py-32 bg-kairos-dark">
+          <div className="container mx-auto px-4">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-kairos-light to-kairos-green"
             >
               What We Do
             </motion.h2>
@@ -238,7 +298,7 @@ export default function Home() {
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group p-8 rounded-lg bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all"
+                  className="group p-8 rounded-lg bg-kairos-gray backdrop-blur-sm border border-kairos-green/10 hover:border-kairos-green/20 transition-all"
                 >
                   <div className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
@@ -258,152 +318,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Enhanced Portfolio Section */}
-        <section id="portfolio" className="py-32 bg-black">
-          <div className="container mx-auto px-4">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
-            >
-              Our Portfolio
-            </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {startups.map((startup, index) => (
-                <motion.div
-                  key={startup.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group relative overflow-hidden rounded-lg bg-black/50 backdrop-blur-sm border border-white/10"
-                >
-                  <div className="relative h-64 w-full">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90 z-10" />
-                    <Image
-                      src={startup.image}
-                      alt={startup.name}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-2xl font-bold mb-2">{startup.name}</h3>
-                      <p className="text-gray-300 mb-4">{startup.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {startup.tech.map((tech, i) => (
-                          <span key={i} className="px-3 py-1 bg-white/10 rounded-full text-sm">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      <Link 
-                        href={startup.link}
-                        className="inline-flex items-center text-white hover:text-gray-300 transition-colors"
-                      >
-                        Learn More
-                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="absolute top-4 right-4 z-20">
-                    <span className={`px-3 py-1 rounded-full text-sm ${
-                      startup.status === 'LIVE' ? 'bg-green-500/20 text-green-400' :
-                      startup.status === 'BETA' ? 'bg-blue-500/20 text-blue-400' :
-                      startup.status === 'COMING SOON' ? 'bg-yellow-500/20 text-yellow-400' :
-                      'bg-gray-500/20 text-gray-400'
-                    }`}>
-                      {startup.status}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Enhanced Partners Section */}
-        <section className="py-32 bg-black">
-          <div className="container mx-auto px-4">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
-            >
-              Our Partners
-            </motion.h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-              {partners.map((partner, index) => (
-                <motion.div
-                  key={partner.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group relative aspect-square rounded-lg bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all p-6 flex items-center justify-center"
-                >
-                  <Image
-                    src={partner.image}
-                    alt={partner.name}
-                    fill
-                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <div>
-                      <h3 className="text-lg font-semibold mb-1">{partner.name}</h3>
-                      <p className="text-sm text-gray-400">{partner.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Enhanced Tech Stack Section */}
-        <section className="py-32 bg-black">
-          <div className="container mx-auto px-4">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
-            >
-              Our Tech Stack
-            </motion.h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {techStack.map((tech, index) => (
-                <motion.div
-                  key={tech.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group relative aspect-square rounded-lg bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all p-6 flex items-center justify-center"
-                >
-                  <Image
-                    src={tech.image}
-                    alt={tech.name}
-                    fill
-                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <h3 className="text-lg font-semibold">{tech.name}</h3>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Contact Section */}
-        <section className="py-20 bg-black relative overflow-hidden">
+        <section className="py-20 bg-kairos-dark relative overflow-hidden">
           <motion.div 
             className="absolute inset-0 opacity-30"
             animate={{ 
@@ -416,7 +332,7 @@ export default function Home() {
               repeatType: "reverse" 
             }}
             style={{
-              backgroundImage: 'radial-gradient(circle at center, #39FF14 1px, transparent 1px)',
+              backgroundImage: 'radial-gradient(circle at center, #00FF9D 1px, transparent 1px)',
               backgroundSize: '50px 50px',
             }}
           />
@@ -427,7 +343,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold mb-8 heading-gradient">
+              <h2 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-kairos-light to-kairos-green">
                 Ready to Transform Your Idea?
               </h2>
               <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -438,12 +354,12 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link 
+                <a 
                   href="mailto:charlie@kairosventures.net"
-                  className="btn-primary"
+                  className="inline-block bg-kairos-green text-kairos-dark px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-opacity-90"
                 >
                   Get in Touch
-                </Link>
+                </a>
               </motion.div>
             </motion.div>
           </div>

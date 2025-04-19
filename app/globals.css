@@ -15,13 +15,29 @@ body {
     rgb(var(--background-start-rgb)),
     rgb(var(--background-end-rgb))
   );
-  min-height: 100vh;
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl font-bold md:text-5xl;
+  }
+  h2 {
+    @apply text-3xl font-bold md:text-4xl;
+  }
+  h3 {
+    @apply text-2xl font-bold md:text-3xl;
+  }
 }
 
 @layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-colors duration-200;
+  }
   .btn-primary {
-    @apply px-6 py-3 bg-kairos-green text-black font-semibold rounded-lg 
-    hover:opacity-90 transition-all duration-300;
+    @apply bg-kairos-blue text-white hover:bg-kairos-blue/90;
+  }
+  .btn-secondary {
+    @apply bg-transparent text-white border border-white hover:bg-white/10;
   }
   
   .section-padding {
@@ -34,6 +50,12 @@ body {
 }
 
 @layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-kairos-blue to-kairos-purple;
+  }
+  .bg-gradient {
+    @apply bg-gradient-to-r from-kairos-blue to-kairos-purple;
+  }
   .text-balance {
     text-wrap: balance;
   }
