@@ -11,8 +11,9 @@ const nextConfig = {
     ],
   },
   experimental: {
-    serverActions: true,
+    // Remove serverActions as it's now enabled by default
   },
+  trailingSlash: true,
 }
 
 module.exports = nextConfig 
