@@ -126,245 +126,173 @@ export default function Home() {
         <meta property="og:image" content="/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <main className="min-h-screen bg-kairos-dark text-kairos-light">
-        {/* Hero Section */}
-        <section className="relative h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-kairos-dark/80 to-kairos-dark/40" />
-            <Image
-              src="/hero-bg.jpg"
-              alt="Background"
-              fill
-              className="object-cover opacity-30"
-              priority
-            />
+      <div className="min-h-screen bg-black text-white">
+        <motion.header 
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/10"
+        >
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between h-20">
+              <Link href="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                Kairos Ventures
+              </Link>
+              <nav className="hidden md:flex items-center space-x-8">
+                <Link href="#portfolio" className="text-gray-300 hover:text-white transition-colors">
+                  Portfolio
+                </Link>
+                <Link href="#services" className="text-gray-300 hover:text-white transition-colors">
+                  Services
+                </Link>
+                <Link href="#partners" className="text-gray-300 hover:text-white transition-colors">
+                  Partners
+                </Link>
+                <Link href="/contact" className="bg-white text-black px-6 py-2 rounded-full hover:bg-gray-200 transition-colors">
+                  Contact
+                </Link>
+              </nav>
+            </div>
           </div>
-          <div className="container mx-auto px-4 z-10 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto"
-            >
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-kairos-light to-kairos-green">
-                Building Tomorrow's Innovations
-              </h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto"
-              >
-                We partner with visionary founders to create exceptional companies
-              </motion.p>
+        </motion.header>
+
+        <main className="pt-20">
+          <section className="min-h-screen flex items-center justify-center">
+            <div className="container mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center"
+                transition={{ duration: 0.8 }}
+                className="text-center"
               >
-                <Link 
-                  href="mailto:charlie@kairosventures.net" 
-                  className="bg-kairos-green text-kairos-dark px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-opacity-90"
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                  Building Tomorrow's Innovations Today
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-300 mb-8">
+                  Transforming innovative ideas into market-leading businesses
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-block bg-white text-black px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition-colors"
                 >
                   Get Started
                 </Link>
-                <Link 
-                  href="#portfolio" 
-                  className="border border-kairos-green text-kairos-green px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-kairos-green hover:text-kairos-dark"
-                >
-                  View Portfolio
-                </Link>
               </motion.div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="py-32 bg-kairos-dark">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group p-8 rounded-lg bg-kairos-gray backdrop-blur-sm border border-kairos-green/10 hover:border-kairos-green/20 transition-all"
-                >
-                  <motion.h3 
-                    className="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-kairos-light to-kairos-green"
-                    whileInView={{ scale: [0.8, 1.2, 1] }}
-                    transition={{ duration: 1 }}
-                  >
-                    {stat.number}
-                  </motion.h3>
-                  <p className="text-xl text-gray-300 mb-2">{stat.label}</p>
-                  <p className="text-sm text-gray-500">{stat.sublabel}</p>
-                </motion.div>
-              ))}
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Portfolio Section */}
-        <section id="portfolio" className="py-32 bg-kairos-dark">
-          <div className="container mx-auto px-4">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-kairos-light to-kairos-green"
-            >
-              Our Portfolio
-            </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {startups.map((startup, index) => (
-                <motion.div
-                  key={startup.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -10 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group relative overflow-hidden rounded-lg bg-kairos-gray backdrop-blur-sm border border-kairos-green/10"
-                >
-                  <div className="relative h-64 w-full">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-kairos-dark/90 z-10" />
-                    <Image
-                      src={startup.image}
-                      alt={startup.name}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-2xl font-bold mb-2">{startup.name}</h3>
-                      <p className="text-gray-300 mb-4">{startup.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {startup.tech.map((tech, i) => (
-                          <span key={i} className="px-3 py-1 bg-kairos-green/10 rounded-full text-sm text-kairos-green">
-                            {tech}
+          <section id="portfolio" className="py-20">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Portfolio</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                {startups.map((startup, index) => (
+                  <motion.div
+                    key={startup.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10"
+                  >
+                    <div className="relative h-64">
+                      <Image
+                        src={startup.image}
+                        alt={startup.name}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-2xl font-bold mb-2">{startup.name}</h3>
+                        <p className="text-gray-300 mb-4">{startup.description}</p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {startup.tech.map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1 bg-white/10 rounded-full text-sm"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">
+                            {startup.status}
                           </span>
-                        ))}
+                          <Link
+                            href={startup.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white hover:text-gray-300 transition-colors"
+                          >
+                            Visit Site →
+                          </Link>
+                        </div>
                       </div>
-                      <a 
-                        href={startup.link}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="services" className="py-20 bg-white/5">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Services</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {services.map((service, index) => (
+                  <motion.div
+                    key={service.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+                  >
+                    <div className="text-4xl mb-4">{service.icon}</div>
+                    <h3 className="text-xl font-bold mb-2">{service.name}</h3>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="partners" className="py-20">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Partners</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {partners.map((partner, index) => (
+                  <motion.div
+                    key={partner.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10"
+                  >
+                    <div className="relative h-48">
+                      <Image
+                        src={partner.image}
+                        alt={partner.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold mb-2">{partner.name}</h3>
+                      <p className="text-gray-300 mb-4">{partner.description}</p>
+                      <Link
+                        href={partner.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-kairos-green hover:text-kairos-light transition-colors"
+                        className="text-white hover:text-gray-300 transition-colors"
                       >
-                        Learn More
-                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </a>
+                        Learn More →
+                      </Link>
                     </div>
-                  </div>
-                  <div className="absolute top-4 right-4 z-20">
-                    <span className={`px-3 py-1 rounded-full text-sm ${
-                      startup.status === 'LIVE' ? 'bg-green-500/20 text-green-400' :
-                      startup.status === 'BETA' ? 'bg-blue-500/20 text-blue-400' :
-                      startup.status === 'COMING SOON' ? 'bg-yellow-500/20 text-yellow-400' :
-                      'bg-gray-500/20 text-gray-400'
-                    }`}>
-                      {startup.status}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section className="py-32 bg-kairos-dark">
-          <div className="container mx-auto px-4">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold text-center mb-20 bg-clip-text text-transparent bg-gradient-to-r from-kairos-light to-kairos-green"
-            >
-              What We Do
-            </motion.h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group p-8 rounded-lg bg-kairos-gray backdrop-blur-sm border border-kairos-green/10 hover:border-kairos-green/20 transition-all"
-                >
-                  <div className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4">{service.name}</h3>
-                  <p className="text-gray-400">
-                    {service.name === "Early Stage Investment" && "Strategic capital and resources for promising startups"}
-                    {service.name === "Strategic Planning" && "Comprehensive roadmap development and execution"}
-                    {service.name === "Technical Development" && "Cutting-edge technology implementation and optimization"}
-                    {service.name === "Marketing & Growth" && "Data-driven strategies for sustainable expansion"}
-                    {service.name === "UI/UX Design" && "User-centered design for exceptional digital experiences"}
-                    {service.name === "AI Integration" && "Intelligent solutions for enhanced business operations"}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section className="py-20 bg-kairos-dark relative overflow-hidden">
-          <motion.div 
-            className="absolute inset-0 opacity-30"
-            animate={{ 
-              backgroundPosition: ['0% 0%', '100% 100%'],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ 
-              duration: 20, 
-              repeat: Infinity,
-              repeatType: "reverse" 
-            }}
-            style={{
-              backgroundImage: 'radial-gradient(circle at center, #00FF9D 1px, transparent 1px)',
-              backgroundSize: '50px 50px',
-            }}
-          />
-          <div className="container mx-auto px-4 text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-kairos-light to-kairos-green">
-                Ready to Transform Your Idea?
-              </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                We're always excited to hear about innovative ideas and ambitious projects.
-                Let's build something extraordinary together.
-              </p>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <a 
-                  href="mailto:charlie@kairosventures.net"
-                  className="inline-block bg-kairos-green text-kairos-dark px-8 py-3 rounded-full text-lg font-medium transition-all hover:bg-opacity-90"
-                >
-                  Get in Touch
-                </a>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
+      </div>
     </>
   )
 } 
